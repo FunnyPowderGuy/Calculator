@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: aliceblue;
+    min-width: 320px; /* Prevent browser from shrinking too small */
+    min-height: 480px;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.main {
+    border: 4px solid #3a4452;
+    border-radius: 20px;
+    width: 30%;
+    min-width: 320px; /* Minimum width for calculator */
+    max-width: 480px; /* Optional max width */
+    height: 80vh;
+    min-height: 480px; /* Minimum height */
+    max-height: 90vh; /* Prevent overflow on very short screens */
+    margin: 10vh auto; /* Center horizontally */
+    position: relative; /* Changed from absolute for better responsiveness */
+    background: #3a4452;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Display styling */
+.display {
+    width: 90%;
+    height: 10vh;
+    border: 4px solid white;
+    border-radius: 5px;
+    margin: 1em auto;
+    flex-shrink: 0;
+}
+
+.display input {
+    width: 100%;
+    background: none;
+    height: 9vh;
+    border: none;
+    color: white;
+    font-size: 1.7em;
+    padding: 0.5em;
+}
+
+/* Buttons container */
+.buttons {
+    padding: 1em;
+    margin: 1em auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1em;
+    border: 4px solid white;
+    border-radius: 5px;
+    width: 90%;
+    flex-grow: 1;
+    overflow: hidden; /* Prevent overflow */
+    min-height: 0; /* Allow flexbox to shrink */
+}
+
+/* Buttons styling */
+.buttons input {
+    padding: 0.5em;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.7em;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    min-width: 0; /* Fix for flexbox/grid shrinking */
+    min-height: 0; /* Allow buttons to shrink */
+    height: auto; /* Flexible height */
+}
+
+.buttons input:hover {
+    background: rgb(208, 208, 208);
+}
+
+/* Copy text */
+.copy {
+    text-align: center;
+    color: #556072;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+/* Responsive adjustments */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+    .main {
+        width: 80%;
+        min-width: 320px;
+        height: 70vh;
+        min-height: 400px;
+        margin: 5vh auto;
+    }
+
+    .display {
+        height: 12vh;
+    }
+
+    .display input {
+        font-size: 1.4em;
+        height: 11vh;
+    }
+
+    .buttons {
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+        margin: 1em 0;
+        gap: 0.8em;
+        padding: 0.8em;
+    }
+
+    .buttons input {
+        font-size: 1.4em;
+        padding: 0.4em;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    body {
+        min-width: 320px;
+        min-height: 480px;
+    }
+
+    .main {
+        width: 95%;
+        height: auto;
+        min-height: 400px;
+        margin: 2vh auto;
+        border-radius: 15px;
+    }
+
+    .display {
+        height: 10vh;
+        margin: 0.5em auto;
+        width: 100%;
+    }
+
+    .display input {
+        font-size: 1.2em;
+        height: 9vh;
+        padding: 0.4em;
+    }
+
+    .buttons {
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        gap: 0.6em;
+        padding: 0.6em;
+        margin: 0.5em 0;
+    }
+
+    .buttons input {
+        font-size: 1.2em;
+        padding: 0.3em;
+    }
+}
